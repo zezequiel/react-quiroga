@@ -31,3 +31,29 @@ a:hover{
         font-family: 'Spline Sans Mono', monospace;
         color: blue;
 }
+.containerCounter{
+        text-align: center;
+        padding: 5px;
+}
+.addCart{
+        text-align: center;
+        padding: 10px;
+        height: 10px;
+}
+.inputCounter{
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        
+}
+button{
+        margin: 5px;
+        height: 40px;
+        border: 0.5px solid #bbb;
+        border-radius: 10px;
+        background-color: aqua;
+}
+button:hover{
+        background-color: rgb(2, 204, 204);
+}
+
