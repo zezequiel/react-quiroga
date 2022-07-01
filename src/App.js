@@ -19,8 +19,8 @@ const App = () =>{
   return (
     <div>
       <NavBar />
-      <ItemListContainer title="TIENDA"/>
-      <ItemCount stock="" initial="" onAdd={onAdd}/>
+      <ItemListContainer title="TIENDA DE PADEL"/>
+      <ItemCount stock={5} initial={1} onAdd={onAdd}/>
     </div>
     
 

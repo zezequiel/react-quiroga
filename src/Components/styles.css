@@ -56,4 +56,53 @@ button{
 button:hover{
         background-color: rgb(2, 204, 204);
 }
+.containerList{
+        display: flex;
+        flex-direction: row;
+}
+.card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 100%;
+}
+      
+.card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
+.containerPaleta {
+        padding: 30px 16px;
+}
+.imagePaleta{
+        width: 97%;
+}
+
+.cardProduct{
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        padding: 20px;
+        
+}
+.cardProduct:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        filter: grayscale(70%);
+}
+      
+h3{
+        text-align: center;
+}
+h4{
+        text-align: center;
+}
+.description{
+        text-align: center;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 17px;
+        padding: 10px;
+}
+.price{
+        margin-left: 10px;
+        font-family: 'Spline Sans Mono', monospace;
+}

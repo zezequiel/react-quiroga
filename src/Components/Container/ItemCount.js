@@ -5,10 +5,6 @@ import "../styles.css"
 //saludar es una funcion callback que la llama el componente hijo pero se ejecuta en el padre
 const ItemCount = ({ stock, initial, onAdd}) =>{
 
-    //Le damos valor a nuestras props
-    initial = 1;
-    stock = 5;
-
     //Estado
     const [counter, setCounter] = useState(initial);
 
