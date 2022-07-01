@@ -5,12 +5,13 @@ import paleta1 from '../../assets/paleta1.jpg';
 import paleta2 from '../../assets/paleta2.jpg';
 import paleta3 from '../../assets/paleta3.jpg';
 import paleta4 from '../../assets/paleta4.jpg';
+import { BarLoader } from "react-spinners";
 
 //de esta manera le puedo pasar propiedades a mi componente
 //saludar es una funcion callback que la llama el componente hijo pero se ejecuta en el padre
 const ItemListContainer = ({title}) =>{
     const [productList, setProductList] = useState([])
-
+    const [loading, Setloading] = useState(true)
 
     const products = [
         {id: '01', price:'37.999', title:'KOMBAT IA-63 PAMPA', description: ' La Kombat IA-63 PAMPA es una pala profesional pensada para grandes luchadores que buscan la máxima potencia en la pista', pictureUrl: paleta1},
@@ -27,12 +28,14 @@ const ItemListContainer = ({title}) =>{
 
     useEffect(() => {
         getData.then((res) =>setProductList(res))
+        getData.catch((err) =>console.log(err))
+        getData.finally(()=>Setloading(false))
     }, [])
 
     return (
         <div class='container'>
             <h1 class="title">{title}</h1>
-            <ItemList productList={productList}/>
+            {loading ? <div class="loading"><BarLoader color="#2B93EC" height={10} width={200}/></div>  : <ItemList productList={productList}/>}
         </div>
     )
 }

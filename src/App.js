@@ -20,7 +20,10 @@ const App = () =>{
     <div>
       <NavBar />
       <ItemListContainer title="TIENDA DE PADEL"/>
-      <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+
+      
+      {/* comentamos hasta que usemos itemCount */}
+      {/* <ItemCount stock={5} initial={1} onAdd={onAdd}/> */}
     </div>
     
 
