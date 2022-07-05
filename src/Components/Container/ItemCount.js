@@ -25,12 +25,9 @@ const ItemCount = ({ stock, initial, onAdd}) =>{
     return (
         <>
             <div class="containerCounter">
-                <h1 class="title">Carrito</h1>
                 <button onClick={handlerclickAdd}>+</button>
                 <input class="inputCounter" type="text" value={counter}/>
                 <button onClick={handlerclicksubtract}>-</button>
-            </div>
-            <div class="addCart">
                 <button onClick={()=>onAdd(counter, stock)}>Agregar al carrito</button>
             </div>
         </>

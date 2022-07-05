@@ -29,14 +29,13 @@ a:hover{
         text-align: center;
         margin-top: 2%;
         font-family: 'Spline Sans Mono', monospace;
-        color: #2B93EC;
+        color: blue;
 }
 .containerCounter{
-        text-align: center;
+
         padding: 5px;
 }
 .addCart{
-        text-align: center;
         padding: 10px;
         height: 10px;
 }
@@ -51,7 +50,7 @@ button{
         height: 40px;
         border: 0.5px solid #bbb;
         border-radius: 10px;
-        background-color: aqua;
+        background-color: white;
 }
 button:hover{
         background-color: rgb(2, 204, 204);
@@ -60,6 +59,8 @@ button:hover{
         display: flex;
         flex-direction: row;
 }
+
+/* Container list product*/
 .card {
         /* Add shadows to create the "card" effect */
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -106,10 +107,65 @@ h4{
         margin-left: 10px;
         font-family: 'Spline Sans Mono', monospace;
 }
+
+
+/* Detail product */
+
+.cardProductDetail{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+        padding: 10%;       
+}
+.titleDetail{
+        font-size:xx-large;
+        font-family: 'Spline Sans Mono', monospace;
+}
+.priceDetail{
+        font-size: xx-large;
+        font-family: 'Spline Sans Mono', monospace;
+}
+
+.cardDetailOne{
+        width: 100%;
+}
+.imagePaletaDetail{
+        width: 90%;
+        height: 600px;
+        border-radius: 10px;
+}
+
+.cardDetailTwo{
+        padding-left: 30px;
+}
+.descriptionDetail{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 18px;
+        padding-top: 10%;
+}
+
+/* loading */
 .loading{
         display: flex;
         flex-direction: column;
         align-items:center;
         padding: 10%;
 
+}
+
+/* media */
+@media (max-width: 1023px) {
+        .cardProductDetail{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 30px;
+                padding: 10%;       
+        }
+        .imagePaletaDetail{
+                width: 100%;
+                height: 90%;
+                border-radius: 10px;
+        }
 }
