@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import ItemCount from "../Container/ItemCount";
+import { Link } from "react-router-dom";
 
 
-const ItemDetail = ({ product }) => { 
+const ItemDetail = ({ product }) => {
 
-    const onAdd = (counter, stock) =>{
+    const [show, setShow] = useState(true);
+
+    const onAdd = (counter, stock) => {
         if (stock > 0){
-          alert("La cantidad de su carrito es de: "+counter)
+            alert("La cantidad de su carrito es de: "+counter)
         }else{
-          alert("Este producto no tiene stock")
+                alert("Este producto no tiene stock")
         }
-        
-      }
+        setShow(!show);
+    }
 
     return(
         <div className="cardProductDetail">
@@ -26,12 +29,13 @@ const ItemDetail = ({ product }) => {
                         <p className='priceDetail'>${product.price}</p>
                         <hr/>
                         <p className='descriptionDetail'>{product.description}</p>
-                        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+                        <h1>{show}</h1>
+                        {show ? <ItemCount stock={5} initial={1} onAdd={onAdd}/>  : <Link to="/cart"><button>FINALIZAR</button></Link>}
                         <hr/>
-                </div>    
+                </div>
             </div>
         </div>
-        
+
     )
 }
 
