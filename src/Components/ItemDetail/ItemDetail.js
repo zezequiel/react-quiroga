@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import ItemCount from "../Container/ItemCount";
 import { Link } from "react-router-dom";
-
+import { context } from "../Context/CartContext"
 
 const ItemDetail = ({ product }) => {
 
     const [show, setShow] = useState(true);
+    const { addItem } = useContext(context);
 
     const onAdd = (counter, stock) => {
         if (stock > 0){
@@ -13,7 +14,10 @@ const ItemDetail = ({ product }) => {
         }else{
                 alert("Este producto no tiene stock")
         }
+        addItem({...product, qty: counter});
         setShow(!show);
+        
+        
     }
 
     return(
@@ -35,7 +39,6 @@ const ItemDetail = ({ product }) => {
                 </div>
             </div>
         </div>
-
     )
 }
 

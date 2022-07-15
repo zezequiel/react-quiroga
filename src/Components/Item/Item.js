@@ -3,8 +3,7 @@ import "../styles.css";
 import { Link } from "react-router-dom";
 
 const Item = ({product}) => { 
-    const {id, title, price, description, pictureUrl} = product
-    
+    const {id, title, price, pictureUrl} = product
     return(
         <Link to={`/detail/${id}`} text-decoration='none'>
             <div className="cardProduct">
