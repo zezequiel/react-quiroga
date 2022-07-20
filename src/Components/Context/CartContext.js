@@ -15,7 +15,6 @@ const CartContext = ({ children }) => {
         setQtyProducts(qty);
     }
 
-
     useEffect(() =>{
         getQtyProducts();
     }, [products])
@@ -44,11 +43,19 @@ const CartContext = ({ children }) => {
     const clear = () =>{
         setProducts([]);
     }
-
+    
+    const calculateTotal = () =>{
+        let count = 0
+        products.forEach((product)=> {
+            count += product.qty * product.price
+        })
+        count = count.toFixed(3)
+        return count
+    }
     
 
     return(
-            <Provider value={{products, addItem, removeItem, clear, qtyProducts}}>
+            <Provider value={{products, addItem, removeItem, clear, qtyProducts, calculateTotal}}>
                 {children}
             </Provider>
     )

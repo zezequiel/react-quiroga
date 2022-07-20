@@ -169,6 +169,19 @@ h4{
         padding: 10%;
 }
 
+/* CART */
+
+.imageCart{
+        width: 180px;
+        height: 90%;
+}
+.productCart{
+        display: flex;
+        border: 2px solid black;
+        width: 90%;
+        margin: 10px;
+}
+
 /* media */
 @media (max-width: 1023px) {
         .containerList{
