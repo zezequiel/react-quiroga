@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import "../styles.css";
 import { BarLoader } from "react-spinners";
-import products from "../FakeApi";
 import { useParams } from "react-router-dom";
+import { db } from "../../firebase/firebase"
+import { getDocs, collection, query, where } from "firebase/firestore";
+ 
 
 //de esta manera le puedo pasar propiedades a mi componente
 //saludar es una funcion callback que la llama el componente hijo pero se ejecuta en el padre
@@ -13,22 +15,24 @@ const ItemListContainer = ({title}) =>{
 
     const { categoryId } = useParams();
 
-    const getData = new Promise((res, rej) => {
-        const filteredProducts = products.filter(
-            (product) => product.category === categoryId
-        );
-        setTimeout(() => {
-            categoryId
-            ?res(filteredProducts)
-            :res(products)
-        }, 1000);
-    })
-
     useEffect(() => {
-        Setloading(true);
-        getData.then((res) =>setProductList(res))
-        getData.catch((err) =>console.log(err))
-        getData.finally(()=>Setloading(false))
+        const q = categoryId
+            ? query(collection(db, 'productos'), where('category', '==' , categoryId))
+            : collection(db, 'productos');
+
+        getDocs(q)
+        .then(result => {
+            const list = result.docs.map(product =>{
+                return {
+                    id: product.id,
+                    ...product.data(),
+                }
+            })
+            setProductList(list);
+        })
+        // Setloading(true);
+        .catch((err) =>console.log(err))
+        .finally(()=>Setloading(false))
     }, [categoryId])
 
     return (

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import "../styles.css";
-import products from "../FakeApi";
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
+import { db } from "../../firebase/firebase"
+import { doc, getDoc, collection } from "firebase/firestore"
 
 //de esta manera le puedo pasar propiedades a mi componente
 //saludar es una funcion callback que la llama el componente hijo pero se ejecuta en el padre
@@ -13,21 +14,18 @@ const ItemDetailContainer = () =>{
 
     const { id } = useParams();
 
-    const getItem = new Promise((res, rej) => {
-        const productFound = products.find(
-            (prod) => prod.id === Number(id));
-            
-        setTimeout(() => {
-            res(productFound);
-        }, 1000);
-    })
-    console.log(productOne);
-    
     useEffect(() => {
-        Setloading(true);
-        getItem.then((res) =>{setProductOne(res);})
-        getItem.catch((error) =>{console.log(error);})
-        getItem.finally(()=>Setloading(false))
+        const productsCollection = collection(db, 'productos');
+        const refDoc = doc(productsCollection,id)
+        getDoc(refDoc).then(result => {
+            setProductOne({
+                id: result.id,
+                ...result.data(),
+            })
+        })
+        // Setloading(true);
+        .catch((error) =>{console.log(error);})
+        .finally(()=>Setloading(false))
     }, [id])
 
     return (
