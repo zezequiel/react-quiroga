@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-quiroga/static/css/main.99fcba05.css",
+    "main.js": "/react-quiroga/static/js/main.f0930017.js",
+    "static/js/787.7ff4ee35.chunk.js": "/react-quiroga/static/js/787.7ff4ee35.chunk.js",
+    "static/media/logo1.png": "/react-quiroga/static/media/logo1.e031aa8bdabe7e1a64d2.png",
+    "index.html": "/react-quiroga/index.html",
+    "main.99fcba05.css.map": "/react-quiroga/static/css/main.99fcba05.css.map",
+    "main.f0930017.js.map": "/react-quiroga/static/js/main.f0930017.js.map",
+    "787.7ff4ee35.chunk.js.map": "/react-quiroga/static/js/787.7ff4ee35.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99fcba05.css",
+    "static/js/main.f0930017.js"
+  ]
+}
